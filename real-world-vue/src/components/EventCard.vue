@@ -1,7 +1,7 @@
 <template>
   <div class="event-card">
-    <span>@{{ event.time }} on {{ event.date }}</span>
-    <h4>{{ event.title }}</h4>
+    <h2>{{ event.title }}</h2>
+    <span>@{{ event.time }} on {{ formatDate(event.date) }}</span>
   </div>
 </template>
 
@@ -11,6 +11,13 @@ export default {
     event: {
       type: Object,
       required: true
+    }
+  },
+  methods:{
+    formatDate(dateStr) {
+      const options = { year: 'numeric', month: 'long', day: '2-digit' }
+      const date = new Date(dateStr)
+      return date.toLocaleDateString(undefined, options)
     }
   }
 }
