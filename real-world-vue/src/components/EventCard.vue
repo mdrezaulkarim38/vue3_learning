@@ -1,8 +1,10 @@
 <template>
+  <RouterLink :to="`/events/${event.id}`">
   <div class="event-card">
     <h2>{{ event.title }}</h2>
     <span>@{{ event.time }} on {{ formatDate(event.date) }}</span>
   </div>
+  </RouterLink>
 </template>
 
 <script>
