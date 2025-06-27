@@ -1,25 +1,37 @@
 <script setup>
-import EventCard from "@/components/EventCard.vue";
-import EventService from "@/services/EventService.js";
-import { onMounted, ref } from "vue";
+import EventCard from '@/components/EventCard.vue'
+import EventService from '@/services/EventService.js'
+import { onMounted, ref } from 'vue'
 
-const events = ref(null);
+const props = defineProps(['page'])
+const events = ref(null)
 
-onMounted(() => {
-  EventService.getEvents()
+const fetchEvents = () => {
+  EventService.getEvents(2, props.page)
     .then((response) => {
-      events.value = response.data;
+      events.value = response.data
     })
     .catch((error) => {
-      console.log(error);
-    });
-});
+      console.log(error)
+    })
+}
+onMounted(() => {
+  fetchEvents()
+})
 </script>
 
 <template>
   <h1>Events for Good</h1>
   <div class="events">
     <EventCard v-for="event in events" :key="event.id" :event="event" />
+    <router-link
+      :to="{ name: 'EventList', query: { page: page - 1 } }"
+      v-if="page"
+    ></router-link>
+    <router-link
+      :to="{ name: 'EventList', query: { page: page - 1 } }"
+      v-if="page"
+    ></router-link>
   </div>
 </template>
 
