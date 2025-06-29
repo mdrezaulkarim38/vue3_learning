@@ -26,12 +26,13 @@ onMounted(() => {
     <EventCard v-for="event in events" :key="event.id" :event="event" />
     <router-link
       :to="{ name: 'EventList', query: { page: page - 1 } }"
-      v-if="page"
-    ></router-link>
+      rel="prev"
+      v-if="page != 1"
+    >Pre Page</router-link>
     <router-link
-      :to="{ name: 'EventList', query: { page: page - 1 } }"
-      v-if="page"
-    ></router-link>
+      :to="{ name: 'EventList', query: { page: page + 1 } }"
+      rel="next"      
+    >Next Page</router-link>
   </div>
 </template>
 
