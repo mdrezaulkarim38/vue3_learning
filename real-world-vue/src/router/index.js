@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import EventList from "@/views/EventList.vue";
-import EventDetails from "@/views/EventDetails.vue";
+import EventDetails from "@/views/event/Details.vue";
 import EventEdit from "@/views/event/Edit.vue"
 import EventRegister from "@/views/event/Register.vue"
 import About from "@/views/About.vue";
