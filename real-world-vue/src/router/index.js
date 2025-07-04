@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import EventLayout from '@/views/event/Layout.vue'
 import EventList from '@/views/EventList.vue'
 import EventDetails from '@/views/event/Details.vue'
 import EventEdit from '@/views/event/Edit.vue'
