@@ -5,6 +5,7 @@ import EventDetails from '@/views/event/Details.vue'
 import EventEdit from '@/views/event/Edit.vue'
 import EventRegister from '@/views/event/Register.vue'
 import About from '@/views/About.vue'
+import NotFound from '@/views/NotFound.vue'
 
 const routes = [
   {
@@ -49,6 +50,11 @@ const routes = [
     name: 'About',
     component: About,
   },
+  {
+    path: '/:catchAll(.*)',
+    name: 'NotFound',
+    component: NotFound
+  }
 ]
 
 const router = createRouter({
